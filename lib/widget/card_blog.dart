@@ -1,20 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:routonews/screen/read_screen.dart';
 
 class BlogCard extends StatelessWidget {
-  String title;
-  String desc;
-  String imgUrl;
-  int Number;
-  BlogCard({
-    @required this.title,
-    @required this.imgUrl,
-    @required this.desc,
-  });
+  final String title;
+  final String desc;
+  final String imgUrl;
+  final String url;
+  BlogCard(
+      {@required this.title,
+      @required this.imgUrl,
+      @required this.desc,
+      @required this.url});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => ReadScreen(
+                      title: title,
+                      url: url,
+                    )));
+      },
       child: Container(
           margin: EdgeInsets.only(bottom: 25),
           child: Card(
@@ -42,7 +51,7 @@ class BlogCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 20, bottom: 30, right: 20),
                   child: Text(
-                    desc.length > 100 ? desc.substring(0, 120) : desc,
+                    desc.length > 50 ? desc.substring(0, 50) : desc,
                     style: TextStyle(
                         color: Colors.black87, fontSize: 14, height: 1.4),
                   ),

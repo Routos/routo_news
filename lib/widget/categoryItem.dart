@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
-  String name;
-  String imgUrl;
+  final String name;
+  final String imgUrl;
   CategoryItem({this.name, this.imgUrl});
   @override
   Widget build(BuildContext context) {

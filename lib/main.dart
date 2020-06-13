@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:routonews/helper/data.dart';
 import 'package:routonews/helper/news.dart';
 import 'package:routonews/model/article_model.dart';
+import 'package:routonews/screen/main_screen.dart';
 import 'package:routonews/widget/card_blog.dart';
-import 'package:routonews/widget/category_item.dart';
+import 'package:routonews/widget/categoryItem.dart';
 
 import 'model/category_model.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: MainScreen(),
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white, primaryColor: Colors.white),
       debugShowCheckedModeBanner: false,
@@ -97,7 +99,9 @@ class _HomePageState extends State<HomePage> {
                       child: CircularProgressIndicator(),
                     )
                   : Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 15,
+                      ),
                       height: double.infinity,
                       child: ListView.builder(
                           itemCount: articles.length,
@@ -107,6 +111,7 @@ class _HomePageState extends State<HomePage> {
                               title: articles[index].title,
                               imgUrl: articles[index].urlToImg,
                               desc: articles[index].description,
+                              url: articles[index].url,
                             );
                           }),
                     ),

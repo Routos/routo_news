@@ -1,7 +1,5 @@
 import 'package:routonews/model/category_model.dart';
 
-String apiKey = "563492ad6f91700001000001eab6bc8531c34e29bb3a5ef72a7ccd5b";
-
 List<Category> getCategories() {
   List<Category> categories = new List<Category>();
 
